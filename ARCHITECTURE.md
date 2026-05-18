@@ -1,4 +1,4 @@
-# MANARAH V30.3-Production Architecture
+# MANARAH -Production Architecture
 
 This document details the technical implementation of the MANARAH ReID pipeline, focusing on its multi-modal fusion and bias mitigation strategies.
 
