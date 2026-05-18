@@ -2,9 +2,9 @@
 
 🤖 **MANARAH** is an enterprise-grade, smartphone-optimized, offline-first Person Re-Identification (ReID) biometric orchestration engine designed, architected, and built exclusively as an independent software project.
 
-[![Engine CI Status](https://github.com/MalikAnees530/Manarah-Project-AI-Model/actions/workflows/ci.yml/badge.svg)](https://github.com/MalikAnees530/Manarah-Project-AI-Model/actions)
+[![Engine CI Status](https://github.com/MalikAnees530/Manarah-Project-AI-Model/actions/workflows/ci.yml/badge.svg)](https://github.com/MalikAnees530/Manarah-Project-AI-Model/actions/workflows/ci.yml)
 [![License Profile](https://img.shields.io/badge/License-MIT-gold.svg)](LICENSE)
-[![Ownership Profile](https://img.shields.io/badge/Ownership-Sole%20Independent%20Project-purple.svg)](#)
+[![Ownership Profile](https://img.shields.io/badge/Ownership-Sole%20Independent%20Project-purple.svg)](#-author--creator)
 [![Language Backbone](https://img.shields.io/badge/Backbone-Python%203.10%2B-darkgreen.svg)](requirements.txt)
 [![Privacy Shield](https://img.shields.io/badge/Privacy-100%25%20Offline%20%7C%20Zero%20Cloud-red.svg)](ARCHITECTURE.md)
 
