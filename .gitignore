@@ -1,0 +1,40 @@
+﻿# Comprehensive .gitignore for MANARAH Core Engine Production Build
+
+# Legacy Archives & Backups (Explicitly Ignored)
+_legacy_archive/
+evaluation_data/
+
+# Python Environment and Compilation Caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+ENV/
+
+# Local Vector Database & Engine State
+qdrant_data/
+cluster_registry.json
+*.lock
+
+# Heavy AI Model Weights and Artifact Checkpoints
+model_cache/
+*.pt
+*.onnx
+*.weights
+
+# Local Sample Media and Large Ingestion Assets
+wedding pictures/
+wedding_pictures/
+
+# Exclude all transient runtime files within static and uploads
+static/*
+uploads/*
+
+# IDE and OS specific configs
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
