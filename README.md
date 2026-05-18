@@ -1,49 +1,44 @@
-# MANARAH ReID: AI-Powered Wedding Guest Photo Retrieval
+# 🛡️ MANARAH ReID: AI-Powered Event Guest Photo Retrieval
 
-MANARAH is a professional-grade, high-performance Person Re-Identification (ReID) system designed specifically for event photography. It enables guests to find all photos of themselves within massive datasets (e.g., weddings, conferences) using a single selfie, ensuring 100% privacy and sub-second retrieval.
+🤖 **MANARAH (V30.3-Production)** is an enterprise-grade, smartphone-optimized, offline-first Person Re-Identification (ReID) biometric orchestration engine designed, architected, and built exclusively as an independent software project.
 
-## Key Features
+[![Engine CI Status](https://github.com/MalikAnees530/Manarah-Project-AI-Model/actions/workflows/ci.yml/badge.svg)](https://github.com/MalikAnees530/Manarah-Project-AI-Model/actions)
+![License Profile](https://img.shields.io/badge/License-MIT-gold.svg)
+![Ownership Profile](https://img.shields.io/badge/Ownership-Sole%20Independent%20Project-purple.svg)
+![Language Backbone](https://img.shields.io/badge/Backbone-Python%203.10%2B-darkgreen.svg)
+![Privacy Shield](https://img.shields.io/badge/Privacy-100%25%20Offline%20%7C%20Zero%20Cloud-red.svg)
 
-- **100% Offline Operations:** All processing occurs locally. No data ever leaves the host machine.
-- **Zero Cloud APIs:** Uses optimized ONNX and PyTorch models for local inference.
-- **Sub-Second Retrieval:** High-performance vector search powered by Qdrant.
-- **Privacy-First Design:** Transient image data is never stored; only anonymized vector embeddings persist.
+MANARAH operates as a zero-shot standalone AI microservice, eliminating the need for ongoing model retraining loops or cloud processing. It enables guests to instantly locate all photos of themselves across massive event datasets using a single query selfie while ensuring absolute data isolation and sub-second execution speeds.
 
-## Quickstart Guide
+---
 
-### 1. Install Dependencies
-Ensure you have Python 3.10+ installed.
-```bash
-pip install -r requirements.txt
-```
+## 💎 Key Structural Features
 
-### 2. Prepare the Dataset
-Place your event photos in the `wedding pictures/` directory.
+* 🔒 **100% Offline Infrastructure:** All model inference and calculations occur locally on the host server GPU. No biometric data ever leaves your hardware perimeter.
+* 👔 **Sartorial Collapse Prevention (SCP):** Uses anatomical skeleton keypoint coordinates mapped via CNN pose estimations to crop strictly at the upper torso. This isolates body morphology, forcing the transformer to evaluate frame structural metrics rather than clothing textures or color values—crucial for tracking identical uniform attire (e.g., traditional Saudi Arabian wedding Thobes).
+* 🧬 **Dual-Vector Rank Fusion (RRF):** Blends high-fidelity 512-dimensional facial coordinate layouts (ArcFace) with dense 768-dimensional body structure maps (ViT) using a weighted rank fusion algorithm. Features a 2.5x prioritization weight on facial traits with automated fallback routing to body vectors if a profile is heavily turned or obscured.
+* ⚡ **Sub-Second HNSW Graph Traversal:** Features high-speed proximity queries powered by an integrated local Qdrant Vector Database instance. Bypasses file system overheads by searching structured Hierarchical Navigable Small World graphs, locking search latencies flat to 5-20 milliseconds across tens of thousands of identities.
 
-### 3. Index the Event
-Run the initial indexing pass to detect people and generate embeddings:
-```bash
-python main.py --reindex
-```
+---
 
-### 4. Start the API Server
-Launch the FastAPI application to enable search and upload endpoints:
-```bash
-uvicorn main:app --host 0.0.0.0 --port 8000
-```
+## 🛠️ Technology Stack Architecture
 
-## Core Assets
-- `model_cache/`: Local repository for DINOv2 and InsightFace models.
-- `qdrant_data/`: Active vector database storage.
-- `titanium_core/`: The vision pipeline processing engine.
-- `cluster_registry.json`: Persistent registry for face-to-cluster mapping.
+* **Language Environment:** Python 3.10+ (Monolithic ASGI Pipeline)
+* **API Framework:** FastAPI with Concurrent Async CORS Workers
+* **Vector Engine:** Qdrant DB Engine (Local Multi-Tenant Storage Configuration)
+* **Object Discovery:** YOLO11n-pose (Skeletal Landmark Positioning)
+* **Biometric Mapping:** InsightFace Buffalo_L (512-d Facial Feature Extraction)
+* **Morphology Transformer:** Meta DINOv2 vitb14 (768-d Torso Feature Extraction)
 
-## Project Architecture & Data Flow
+---
 
-MANARAH follows a functional, modular architecture designed for high-throughput event processing:
+## 👤 Author & Creator
 
-- **Step 1: Data Ingestion (`/wedding pictures` & `/uploads`)**: Raw images are ingested via the initial `--reindex` CLI command or dynamically via the `/upload` API endpoint.
-- **Step 2: AI Inference (`/model_cache` & `yolo11n-pose.pt`)**: The inference engine utilizes local DINOv2 (Vision Transformer) and Buffalo_L (ArcFace) models for morphological and facial feature extraction.
-- **Step 3: Vector Storage (`/qdrant_data`)**: Extracted 512-d face embeddings and 768-d body embeddings are indexed within the Qdrant vector engine for sub-second retrieval.
-- **Step 4: Dynamic Operations (`/titanium_core` & `cluster_registry.json`)**: The core vision pipeline orchestrates real-time processing, while `cluster_registry.json` maintains thread-safe mapping between vector identities and physical clusters.
-- **Step 5: Client Serving (`/static`)**: Frontend assets and processed result images (with optimized crops and bounding boxes) are served via FastAPI's static file mounts.
+* 👨‍💻 **Malik Anees Ahmed** — *Sole Creator & Lead AI Engineer*
+  * **Core Focus:** End-to-end mathematical modeling, deep learning pipelines optimization, multi-modal feature vector fusion engineering, and localized database graph orchestration.
+  * **Project Type:** 100% Independent Proprietary Development Core.
+
+---
+
+## 📄 License Governance
+This system core is independent software proprietary property licensed under the terms of the official [MIT License](LICENSE).
