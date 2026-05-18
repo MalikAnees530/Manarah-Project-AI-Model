@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+qdrant-client
+opencv-python-headless
+torch
+torchvision
+insightface
+ultralytics
+onnxruntime-gpu
+python-multipart
