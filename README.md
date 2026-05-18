@@ -1,6 +1,6 @@
 # 🛡️ MANARAH ReID: AI-Powered Event Guest Photo Retrieval
 
-🤖 **MANARAH (V30.3-Production)** is an enterprise-grade, smartphone-optimized, offline-first Person Re-Identification (ReID) biometric orchestration engine designed, architected, and built exclusively as an independent software project.
+🤖 **MANARAH** is an enterprise-grade, smartphone-optimized, offline-first Person Re-Identification (ReID) biometric orchestration engine designed, architected, and built exclusively as an independent software project.
 
 [![Engine CI Status](https://github.com/MalikAnees530/Manarah-Project-AI-Model/actions/workflows/ci.yml/badge.svg)](https://github.com/MalikAnees530/Manarah-Project-AI-Model/actions)
 ![License Profile](https://img.shields.io/badge/License-MIT-gold.svg)
