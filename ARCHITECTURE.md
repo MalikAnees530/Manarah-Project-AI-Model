@@ -1,6 +1,6 @@
-# MANARAH -Production Architecture
+# Event ReID Engine V30.3-Production Architecture
 
-This document details the technical implementation of the MANARAH ReID pipeline, focusing on its multi-modal fusion and bias mitigation strategies.
+This document details the technical implementation of the Event ReID Engine ReID pipeline, focusing on its multi-modal fusion and bias mitigation strategies.
 
 ## 1. Detection & Extraction Layer
 
@@ -12,14 +12,14 @@ The system utilizes a dual-inference strategy for initial person discovery:
 
 A major challenge in ReID is "clothing bias"—where the model groups different people simply because they wear similar wedding attire (e.g., black tuxedos). 
 
-MANARAH implements a **Torso-Only Cropping** mechanism:
+Event ReID Engine implements a **Torso-Only Cropping** mechanism:
 - Uses YOLO11n-pose keypoints (5, 6, 11, 12) to define the anatomical boundaries of the upper body.
 - Crops are processed through **DINOv2 vitb14** (768-d), which has been architected to focus on structural and physiological features rather than color-saturated fabric textures.
 - This decoupling ensures that identity is tracked via morphology, not wardrobe.
 
 ## 3. Adaptive Scoring & IQR Thresholding
 
-Static thresholds are brittle in varied lighting. MANARAH replaces fixed cutoffs with dynamic **Interquartile Range (IQR)** calculation:
+Static thresholds are brittle in varied lighting. Event ReID Engine replaces fixed cutoffs with dynamic **Interquartile Range (IQR)** calculation:
 - `face_min` and `body_min` thresholds are derived from the distribution of scores in the live search pool.
 - This allows the system to remain highly selective in clear conditions while automatically adjusting sensitivity for challenging, low-light environments.
 

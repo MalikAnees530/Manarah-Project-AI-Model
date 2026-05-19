@@ -1,6 +1,6 @@
-# 🛡️ MANARAH ReID: AI-Powered Event Guest Photo Retrieval
+# 🛡️ Event ReID Engine: AI-Powered Guest Photo Retrieval
 
-🤖 **MANARAH** is an enterprise-grade, smartphone-optimized, offline-first Person Re-Identification (ReID) biometric orchestration engine designed, architected, and built exclusively as an independent software project.
+🤖 **Event ReID Engine** is an enterprise-grade, smartphone-optimized, offline-first Person Re-Identification (ReID) biometric orchestration engine designed, architected, and built exclusively as an independent software project.
 
 [![Engine CI Status](https://github.com/MalikAnees530/Manarah-Project-AI-Model/actions/workflows/ci.yml/badge.svg)](https://github.com/MalikAnees530/Manarah-Project-AI-Model/actions/workflows/ci.yml)
 [![License Profile](https://img.shields.io/badge/License-MIT-gold.svg)](LICENSE)
@@ -8,7 +8,7 @@
 [![Language Backbone](https://img.shields.io/badge/Backbone-Python%203.10%2B-darkgreen.svg)](requirements.txt)
 [![Privacy Shield](https://img.shields.io/badge/Privacy-100%25%20Offline%20%7C%20Zero%20Cloud-red.svg)](ARCHITECTURE.md)
 
-MANARAH operates as a zero-shot standalone AI microservice, eliminating the need for ongoing model retraining loops or cloud processing. It enables guests to instantly locate all photos of themselves across massive event datasets using a single query selfie while ensuring absolute data isolation and sub-second execution speeds.
+Event ReID Engine operates as a zero-shot standalone AI microservice, eliminating the need for ongoing model retraining loops or cloud processing. It enables guests to instantly locate all photos of themselves across massive event datasets using a single query selfie while ensuring absolute data isolation and sub-second execution speeds.
 
 ---
 

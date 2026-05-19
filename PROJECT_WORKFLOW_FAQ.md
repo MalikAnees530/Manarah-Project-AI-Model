@@ -1,9 +1,9 @@
-# PROJECT WORKFLOW & FAQ: MANARAH ReID V30.3-Production
+# PROJECT WORKFLOW & FAQ: Event ReID Engine V30.3-Production
 
-This document provides a comprehensive guide to the MANARAH ReID architecture, workflow, and technical strategies for Lead Engineers and stakeholders.
+This document provides a comprehensive guide to the Event ReID Engine architecture, workflow, and technical strategies for Lead Engineers and stakeholders.
 
 ### 1. Plain-English Architecture Summary
-The V30.3-Production architecture is an **offline-first, multi-modal biometric search engine**. Unlike traditional search tools that rely solely on facial recognition, MANARAH utilizes a dual-engine approach. It combines **InsightFace** for high-precision facial features and **DINOv2** (Vision Transformers) for morphological body features. These representations are stored in a high-performance **Qdrant Vector Database**, allowing the system to instantly locate wedding guests across thousands of high-resolution photos without ever needing a cloud connection.
+The V30.3-Production architecture is an **offline-first, multi-modal biometric search engine**. Unlike traditional search tools that rely solely on facial recognition, Event ReID Engine utilizes a dual-engine approach. It combines **InsightFace** for high-precision facial features and **DINOv2** (Vision Transformers) for morphological body features. These representations are stored in a high-performance **Qdrant Vector Database**, allowing the system to instantly locate wedding guests across thousands of high-resolution photos without ever needing a cloud connection.
 
 ### 2. Step-by-Step Workflow
 The system processes data through a structured, linear pipeline:
@@ -28,7 +28,7 @@ The system processes data through a structured, linear pipeline:
 *Answer:* The InsightFace (buffalo_l) model is highly robust to varying yaw and pitch angles, mathematically projecting 2D pixels into a 3D embedding space. If a face is completely turned away, obscured, or shadowed, our **Reciprocal Rank Fusion (RRF)** fallback logic automatically shifts the search weight to the DINOv2 body vector to maintain the identity track without a visible face.
 
 **Q: What is the concept regarding "clothing search" and how do we handle everyone wearing similar clothes (like black suits or red dresses)?**
-*Answer:* This is solved via our proprietary **"Sartorial Collapse Prevention."** Standard ReID models often become biased toward clothing color (grouping everyone in black suits together). MANARAH uses YOLO skeleton keypoints (Shoulders 5, 6 and Hips 11, 12) to crop the image *exactly* at the torso. This strips away lower garments and forces the DINOv2 AI to match based on physiological shoulder structure and body morphology rather than fabric color.
+*Answer:* This is solved via our proprietary **"Sartorial Collapse Prevention."** Standard ReID models often become biased toward clothing color (grouping everyone in black suits together). Event ReID Engine uses YOLO skeleton keypoints (Shoulders 5, 6 and Hips 11, 12) to crop the image *exactly* at the torso. This strips away lower garments and forces the DINOv2 AI to match based on physiological shoulder structure and body morphology rather than fabric color.
 
 **Q: How do we prevent false positives (like a lookalike showing up)?**
 *Answer:* We implement two layers of protection: **Adaptive IQR Thresholding**, which dynamically tightens scoring requirements based on the image pool's lighting/quality, and a **strict "85% Hard-Drop Filter"** in our Business Logic Curve. Any match that falls below a calculated 85% confidence is instantly discarded before the user ever sees it.

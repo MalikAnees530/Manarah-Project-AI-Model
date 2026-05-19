@@ -35,6 +35,8 @@ uploads/*
 
 # IDE and OS specific configs
 .vscode/
+.vs/
+*.slnx
 .idea/
 Thumbs.db
 Desktop.ini

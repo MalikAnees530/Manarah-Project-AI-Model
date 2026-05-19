@@ -1,6 +1,6 @@
-# MANARAH ReID: Project Workflow & Non-Technical FAQ
+# Event ReID Engine ReID: Project Workflow & Non-Technical FAQ
 
-Welcome to the executive guide for MANARAH (V30.3-Production). This document translates the advanced engineering, artificial intelligence algorithms, and system architecture behind MANARAH into clear, plain-English explanations. It is designed for stakeholders, project managers, and frontend developers to understand exactly how our high-performance Person Re-Identification (ReID) system operates.
+Welcome to the executive guide for Event ReID Engine (V30.3-Production). This document translates the advanced engineering, artificial intelligence algorithms, and system architecture behind Event ReID Engine into clear, plain-English explanations. It is designed for stakeholders, project managers, and frontend developers to understand exactly how our high-performance Person Re-Identification (ReID) system operates.
 
 ---
 
@@ -24,7 +24,7 @@ Once this initial indexing is complete, the original image resolutions become en
 
 **Q: Do we need a separate Qdrant database or a separate server for every wedding or event?**
 
-**A:** No, you do not need separate infrastructure for every event. MANARAH operates securely out of a single central database folder. 
+**A:** No, you do not need separate infrastructure for every event. Event ReID Engine operates securely out of a single central database folder. 
 
 We achieve this safely by attaching a unique `event_id` tag to every single mathematical profile. When a user searches for their photos at "Wedding A," the system strictly filters the database payload metadata to only look at vectors tagged with "Wedding A." This secure metadata filtering ensures that thousands of separate albums can live together efficiently in one centralized location without any risk of cross-matching data between different clients.
 
@@ -42,15 +42,15 @@ When dozens of users slam the system simultaneously, our server utilizes strict 
 
 **A:** This is one of the most complex challenges in Re-Identification, and we solve it using a proprietary technique called **Sartorial Collapse Prevention**. 
 
-Standard AI systems get lazy and simply group people wearing similar colors together—meaning it would mistakenly think every man in a white Thobe is the same person. To prevent this, MANARAH uses an initial AI (YOLO) to map out a person's skeleton keypoints. It precisely locates their shoulders (points 5/6) and hips (points 11/12), and strictly crops the image to *only* show the upper torso. 
+Standard AI systems get lazy and simply group people wearing similar colors together—meaning it would mistakenly think every man in a white Thobe is the same person. To prevent this, Event ReID Engine uses an initial AI (YOLO) to map out a person's skeleton keypoints. It precisely locates their shoulders (points 5/6) and hips (points 11/12), and strictly crops the image to *only* show the upper torso. 
 
 We then feed this torso crop into our primary body AI (Meta's DINOv2). Because the lower garment and surrounding context are stripped away, the AI is forced to look at physical **body morphology**—the width of the shoulders, posture, and physiological build—rather than the fabric color. Finally, the system uses high-precision facial geometry as the ultimate tie-breaker, ensuring flawless identification even in a sea of identical clothing.
 
 **Q: What happens if a person is captured in a massive group shot, a solo portrait, or at an extreme side-profile angle?**
 
-**A:** MANARAH handles these variations effortlessly through a layered approach:
+**A:** Event ReID Engine handles these variations effortlessly through a layered approach:
 *   **Group Shots:** Our YOLO detection engine arrays scan the entire photo and draw individual bounding boxes around every single person before analysis begins.
-*   **Extreme Angles:** If a guest is facing 90 degrees away from the camera, traditional facial recognition fails. MANARAH maps the face-to-body spatial relationship and uses a technique called **Reciprocal Rank Fusion (RRF)**. If the system determines a 3D facial projection is turned too far or obscured, it dynamically shifts its confidence weight to the DINOv2 body shape. By combining 3D facial geometry with body morphology, we maintain a secure lock on a guest's identity regardless of how they are posed.
+*   **Extreme Angles:** If a guest is facing 90 degrees away from the camera, traditional facial recognition fails. Event ReID Engine maps the face-to-body spatial relationship and uses a technique called **Reciprocal Rank Fusion (RRF)**. If the system determines a 3D facial projection is turned too far or obscured, it dynamically shifts its confidence weight to the DINOv2 body shape. By combining 3D facial geometry with body morphology, we maintain a secure lock on a guest's identity regardless of how they are posed.
 
 ---
 
@@ -58,7 +58,7 @@ We then feed this torso crop into our primary body AI (Meta's DINOv2). Because t
 
 **Q: Do we need to retrain the AI models every time we create a new album or get a new client?**
 
-**A:** No. MANARAH utilizes **'Zero-Shot' learning**. 
+**A:** No. Event ReID Engine utilizes **'Zero-Shot' learning**. 
 
 Our AI engines are pre-trained on millions of global images. They already possess a native, mathematical understanding of human features, facial structures, and body shapes. You never have to wait hours to "retrain" the AI for a new client. You simply point the system at a new folder of event photos, let it extract the mathematics (indexing), and it is instantly ready to search.
 
